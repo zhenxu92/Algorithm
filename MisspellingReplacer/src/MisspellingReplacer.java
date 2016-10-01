@@ -23,7 +23,7 @@ public class MisspellingReplacer {
 	/**
 	 * This method replace the misspelling in each line, and output a file
 	 * @param misspelling the misspelling word that needs to be replaced
-	 * @param spelling the right spelling that replaces the wrong spelling
+	 * @param spelling the right spelling that replaces the wrong spelling.
 	 */
 	public void replacing(String misspelling, String spelling) throws IOException {
 		PrintWriter writer = new PrintWriter("file.txt", "UTF-8");
