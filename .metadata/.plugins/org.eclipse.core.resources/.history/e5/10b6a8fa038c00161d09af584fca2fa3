@@ -48,16 +48,12 @@ public class DirectedGraphCreater {
 		return adjMatT;
 	}
 	
-	public int[][] returnGraph() {
-		return this.adjMat;
-	}
-	
 	public void printMat(int[][] mat) {
 		int length = this.adjMat[0].length;
 		System.out.println("The adjacency matrix for the graph is");
-		System.out.print("  ");
+		System.out.println();
 		for (int i = 1; i < length; i++) {
-			System.out.print(i + " ");
+			System.out.println(i + " ");
 		}
 		System.out.println();
 		for (int i = 1; i < length; i++) {

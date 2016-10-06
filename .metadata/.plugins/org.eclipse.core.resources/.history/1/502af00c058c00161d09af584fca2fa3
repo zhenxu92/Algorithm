@@ -14,7 +14,7 @@ public class DirectedGraphClient {
 	 * @param args
 	 */
 	public static void main(String args[]) throws FileNotFoundException {
-		// Read in a file line by line full of pairs of
+		// TODO: Read in a file line by line full of pairs of
 		// numbers. Then separate them out into number pairs
 		// like 2 4, put it into a list.
 		Scanner console = new Scanner(System.in);
@@ -27,6 +27,8 @@ public class DirectedGraphClient {
 		Scanner input = new Scanner(new File(fileName));
 		
 		// Make all the edges from input file, construct graph creator object
+		// TODO: Count the number of vertices in the file, a way to implement
+		// this is to find the maximum value in the file.
 		List<Integer> vertices = new ArrayList<Integer>();
 		while(input.hasNextInt()) {
 			int vertex = input.nextInt();
@@ -45,7 +47,5 @@ public class DirectedGraphClient {
 		
 		// print out the adjacency transpose matrix
 		dgcreater.printMat(dgcreater.transpose());
-		input.close();
-		console.close();
 	}
 }
