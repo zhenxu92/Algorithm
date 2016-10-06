@@ -12,6 +12,7 @@ public class DirectedGraphCreater {
 	// data field
 	private int[][] adjMat;	// adjacentMatrix
 
+	// TODO: need a data structure to store the graph data, then construct it
 	/**
 	 * Constructor: initiate the length of adjacent matrix
 	 * @param numOfVertex the total number of vertices in the graph
@@ -47,18 +48,10 @@ public class DirectedGraphCreater {
 		return adjMatT;
 	}
 	
-	/**
-	 * This method returns the adjacency matrix
-	 * @return the adjacency matrix that we created
-	 */
 	public int[][] returnGraph() {
 		return this.adjMat;
 	}
 	
-	/**
-	 * This method print out the graph in adjacency matrix form.
-	 * @param mat the adjacency matrix that needs to be printed out
-	 */
 	public void printMat(int[][] mat) {
 		int length = this.adjMat[0].length;
 		System.out.println("The adjacency matrix for the graph is");
