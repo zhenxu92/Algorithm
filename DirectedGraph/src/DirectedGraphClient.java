@@ -45,6 +45,15 @@ public class DirectedGraphClient {
 		
 		// print out the adjacency transpose matrix
 		dgcreater.printMat(dgcreater.transpose());
+		
+		// Finds out the strongly connected components and print
+		// them out
+		StronglyConnectedComponent scc = new StronglyConnectedComponent(dgcreater);
+		List<List<Integer>> components= scc.find();
+		System.out.println("The strongly connected components are:");
+		System.out.println(components);
+		
+		// clears out the IOs
 		input.close();
 		console.close();
 	}
