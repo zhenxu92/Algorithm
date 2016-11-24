@@ -1,0 +1,22 @@
+/**
+ * This class is a general structure of a vertex in a graph
+ * @author zhenxu
+ *
+ */
+public class Vertex {
+	public String id;
+	public String name;
+	
+	public Vertex(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
+	public boolean equals(Vertex b) {
+		if(b.id == this.id && b.name == this.name) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

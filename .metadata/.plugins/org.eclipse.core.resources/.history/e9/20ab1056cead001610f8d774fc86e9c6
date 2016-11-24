@@ -1,0 +1,26 @@
+/**
+ * Edge v 1.0
+ * @author zhenxu
+ * This program describes a edge structure.
+ */
+public class Edge {
+	public Vertex a;
+	public Vertex b;
+	public int weight;
+	public int id;
+	
+	/**
+	 * Construct a edge with weight w
+	 * @param a start vertex
+	 * @param b end vertex
+	 * @param w weight
+	 * @param id id number of the vertex
+	 */
+	public Edge(Vertex a, Vertex b, int w, int id) {
+		this.id = id;
+		this.weight = w;
+		this.a = a;
+		this.b = b;
+	}
+	
+}

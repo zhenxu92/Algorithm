@@ -1,0 +1,20 @@
+/**
+ * ShortestPath using Dijkstra Algorithm v 1.0
+ * @author zhenxu
+ *
+ */
+
+import java.util.*;
+public class ShortestPath {
+	private List<Vertex> nodes;
+	private List<Edge> edges;
+	private Set<Vertex> knownNodes;
+	private Set<Vertex> unknownNodes;
+	private Map<Vertex, Vertex> pre;
+	private Map<Vertex, Integer> distance;
+	
+	public ShortestPath(Graph g) {
+		this.nodes = new ArrayList<Vertex>(g.getVertices());
+		this.edges = new ArrayList<Edge>(g.getEdges());
+	}
+}
