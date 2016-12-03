@@ -1,0 +1,58 @@
+/**
+ * Edge v 1.0
+ * @author zhenxu
+ * This program describes a edge structure.
+ */
+
+import java.math.*;
+public class Edge implements Comparable<Edge>{
+        private final int id;
+        private final Vertex source;
+        private final Vertex destination;
+        private final double weight;
+
+        public Edge(int id, Vertex source, Vertex destination, double weight) {
+                this.id = id;
+                this.source = source;
+                this.destination = destination;
+                this.weight = weight;
+        }
+        
+        public Edge(int id, Vertex source, Vertex destination) {
+        	this.id = id;
+        	this.source = source;
+        	this.destination = destination;
+        	this.weight = Math.sqrt((double)x * (double)x + (double)y * (double)y);
+        }
+
+        public int getId() {
+                return id;
+        }
+        public Vertex getDestination() {
+                return destination;
+        }
+
+        public Vertex getSource() {
+                return source;
+        }
+        public double getWeight() {
+                return weight;
+        }
+
+        @Override
+        public String toString() {
+                return source + " " + destination;
+        }
+        
+        public int compareTo(Edge other) {
+        	if(this.weight - other.weight > 0) {
+        		return 1;
+        	} else if (this.weight == other.weight) {
+        		return 0;
+        	} else {
+        		return -1;
+        	}
+        }
+
+
+}

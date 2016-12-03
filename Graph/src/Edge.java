@@ -3,20 +3,33 @@
  * @author zhenxu
  * This program describes a edge structure.
  */
+
+import java.math.*;
 public class Edge implements Comparable<Edge>{
-        private final String id;
+        private final int id;
         private final Vertex source;
         private final Vertex destination;
-        private final int weight;
+        private final double weight;
 
-        public Edge(String id, Vertex source, Vertex destination, int weight) {
+        public Edge(int id, Vertex source, Vertex destination, double weight) {
                 this.id = id;
                 this.source = source;
                 this.destination = destination;
                 this.weight = weight;
         }
+        
+        public Edge(int id, Vertex source, Vertex destination) {
+        	this.id = id;
+        	this.source = source;
+        	this.destination = destination;
+        	int x1 = source.getX();
+        	int y1 = source.getY();
+            int x2 = destination.getX();
+            int y2 = destination.getY();
+        	this.weight = Math.sqrt((x1-x2) * (x1-x2) + (y1-y2)*(y1-y2));
+        }
 
-        public String getId() {
+        public int getId() {
                 return id;
         }
         public Vertex getDestination() {
@@ -26,7 +39,7 @@ public class Edge implements Comparable<Edge>{
         public Vertex getSource() {
                 return source;
         }
-        public int getWeight() {
+        public double getWeight() {
                 return weight;
         }
 
@@ -36,7 +49,13 @@ public class Edge implements Comparable<Edge>{
         }
         
         public int compareTo(Edge other) {
-        	return this.weight - other.weight;
+        	if(this.weight - other.weight > 0) {
+        		return 1;
+        	} else if (this.weight == other.weight) {
+        		return 0;
+        	} else {
+        		return -1;
+        	}
         }
 
 

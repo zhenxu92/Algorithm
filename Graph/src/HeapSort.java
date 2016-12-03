@@ -6,11 +6,12 @@
 // Heapsort: buildHeap, then deleteMin till everything is dequeued
 // buildHeap:
 // using an array
-
+import java.util.*;
 import org.apache.commons.lang3.ArrayUtils;
 public class HeapSort {
-    private int[] arr;
+    private Edge[] arr;
     private int size;
+    private Comparator<Edge> comparator;
     
     // Pre: if there is anything in this structure,
     // calling this constructor will not store any
@@ -18,13 +19,14 @@ public class HeapSort {
     // Post: construct a heap structure
     public HeapSort() {
         size = 0;
-        arr = new int[17];
+        arr = new Edge[100];
     }
     
     // Pre: the other array
     // Construct a heap structure from another array
-    public HeapSort(int[] other) {
-        this.arr = new int[other.length + 1];
+    public HeapSort(Edge[] other) {
+        
+        this.arr = new Edge[other.length + 1];
         for(int i = 0; i < other.length; i++) {
             this.arr[i + 1] = other[i];
         }        
@@ -37,13 +39,14 @@ public class HeapSort {
     // a heap
     public void buildHeap() {
         for(int i = size / 2; i > 0; i--) {
-            int val = arr[i];
+            Edge val = arr[i];
             int hole = percolateDown(i, val);
             arr[hole] = val;
-        }      
+        }
+        // TODO: restore size of the binary heap        
     }
     
-    public void insert(int val) {
+    public void insert(Edge val) {
         if(size == arr.length - 1) {
             resize();
         }
@@ -52,37 +55,37 @@ public class HeapSort {
         arr[hole] = val;   
     }
     
-    public int deleteMin() {
+    public Edge deleteMin() {
         if(this.arr.length == 0) {
             throw new IllegalArgumentException();
         }
-        int ans = arr[1];
+        Edge ans = arr[1];
         int hole = percolateDown(1, arr[size]);
         arr[hole] = arr[size];
         size = size - 1;
         return ans;
     } 
     
-    private int percolateUp(int hole, int val) {
-        while(hole > 1 && val < arr[hole/2]) {
+    private int percolateUp(int hole,Edge val) {
+        while(hole > 1 && greater(arr[hole/2], val)) {
             arr[hole] = arr[hole/2];
             hole = hole/2;
         }
         return hole;       
     }
     
-    private int percolateDown(int hole, int val) {
+    private int percolateDown(int hole, Edge val) {
         while(2 * hole <= size) {
             int left = 2 * hole;
             int right = left + 1;
             int target = 0;
             // determine if the index of any child is out of bound
-            if(right > size || arr[left] < arr[right]) {
+            if(right > size || greater(arr[right], arr[left])) {
                 target = left;
             } else {
                 target = right;
             }
-            if(arr[target] < val) {
+            if(greater(val, arr[target])) {
                 arr[hole] = arr[target];
                 hole = target;
             } else {
@@ -95,24 +98,30 @@ public class HeapSort {
     // Pre: the arr must be constructed before this method can be use
     // Post: the size of the array will be doubled afterwards
     public void resize() {
-        int[] copyArr = new int[this.size * 2];
+        Edge[] copyArr = new Edge[this.size * 2];
         System.arraycopy(this.arr, 0, copyArr, 0, size);  
         this.arr = copyArr;  
+    }
+    
+    public boolean isEmpty() {
+    	return size == 0;
     }
     
     public String toString() {
         String str = "";
         for(int i = 1; i < this.size + 1; i++) {
-            str = str + this.arr[i] + " ";
+            str = str + this.arr[i].toString() + " ";
         }
         return str;
     }
     
+
+    
     // Pre: an input of an array consists of all integer numbers.
     // Post: output an array that is in ascending order.
-    public int[] sort() {
+    public Edge[] sort() {
         int n = size;
-        int[] sorted = new int[n];
+        Edge[] sorted = new Edge[n];
         for(int i = 1; i < n; i++) {
             this.arr[n + 1 - i] = deleteMin();
         }
@@ -123,4 +132,11 @@ public class HeapSort {
         return sorted;
     }
     
+    private boolean greater(Edge i, Edge j) {
+        if(comparator == null) {
+            return ((Comparable<Edge>)i).compareTo(j) > 0;
+        } else {
+            return comparator.compare(i, j) > 0;
+        }
+    }
 }

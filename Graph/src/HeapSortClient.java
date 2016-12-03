@@ -1,28 +1,28 @@
 public class HeapSortClient {
     public static void main(String args[]) {
-        HeapSort hs = new HeapSort();
-        hs.insert(1);
-        hs.insert(13);
-        hs.insert(100);
-        hs.insert(3);
-        hs.insert(2);
-        System.out.println(hs.toString());
-        int[] arr = new int[10];
-        for(int i = 10; i > 0; i--) {
-            arr[10 - i] = i;
-        }
-        // function: insert -> pass
+        Vertex one = new Vertex(1, "one");
+        Vertex two = new Vertex(2, "two");
+        Vertex three = new Vertex(3, "three");
+        Vertex four = new Vertex(4, "four");
+        Vertex five = new Vertex(5, "five");
+        Vertex six = new Vertex(6, "six");
+        Edge e1 = new Edge("1", one, two, 3);
+        Edge e2 = new Edge("2", two, one, 4);
+        Edge e3 = new Edge("3", three, one, 10);
+        Edge e4 = new Edge("4", four, one, 20);
+        Edge e5 = new Edge("5", five, one, 1);
+        Edge e6 = new Edge("6", six, one, 2);
+
+        HeapSort ohs = new HeapSort();
+        ohs.insert(e1);
+        ohs.insert(e2);
+        ohs.insert(e3);
+        ohs.insert(e4);
+        ohs.insert(e5);
+        ohs.insert(e6);
+        System.out.println(ohs.deleteMin().toString());
+        System.out.println(ohs.deleteMin().toString());
+        System.out.println(ohs.deleteMin().toString());
         
-        HeapSort hs2 = new HeapSort(arr);
-        System.out.println(hs2.toString());
-        // function: toString -> pass
-        System.out.println(hs2.deleteMin());
-        // function: return the smallest number in the array -> pass
-        System.out.println(hs2.toString());
-        // function: keep the structure of heap after we deleteMin() -> seems pass
-        int[] mySortedArray = hs2.sort();
-        for(int i = 0; i < mySortedArray.length; i++) {
-        	System.out.print(mySortedArray[i] + " ");
-        }
     }
 }
