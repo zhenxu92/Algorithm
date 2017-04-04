@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;vertex&apos; to &apos;Vertex&apos;&#x0A;- Original project: &apos;TSP&apos;&#x0A;- Original element: &apos;vertex&apos;&#x0A;- Renamed element: &apos;Vertex&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;vertex&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{vertex.java[vertex" matchStrategy="1" name="Vertex" qualified="false" references="true" similarDeclarations="false" stamp="1490642548933" textual="false" version="1.0"/>
+</session>

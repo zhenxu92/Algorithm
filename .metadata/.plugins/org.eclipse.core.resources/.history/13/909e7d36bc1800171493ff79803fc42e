@@ -1,0 +1,20 @@
+import java.util.*;
+public class TSPMain {
+	public static void main(String args[]) {
+
+		int[][] edges = new int[10][10];
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				edges[i][j] = i * j;
+			}
+		}
+		
+		TSPManager tsp = new TSPManager(edges);
+		for (int i = 0; i < 1; i++) {
+			tsp.crossover();
+		}
+		
+		System.out.println(tsp.costCalc(tsp.optimalPath));
+		
+	}
+}

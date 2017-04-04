@@ -1,0 +1,33 @@
+import java.util.*;
+public class TSPManager {
+	
+	// data field
+	List<Edge> listOfEdges = new ArrayList<Edge>();	// list of edges
+	List<Integer> optimalPath = new ArrayList<Integer>(); // best path
+	List<Integer> parenta = new ArrayList<Integer>();
+	List<Integer> parentb = new ArrayList<Integer>();
+	
+	
+	public TSPManager() {
+		
+	}
+	
+	// initializing the two lists
+	public void initializer () {
+		
+	}
+	
+	// crossover
+	// random select some numbers and do the crossover
+	// produce the two offsprings
+	public void crossover () {
+			
+	}
+	
+	// compare the offsprings with the parents, if cost
+	// is smaller, promote it and store as optimal path
+	public boolean comparator ()
+	
+	
+	
+}

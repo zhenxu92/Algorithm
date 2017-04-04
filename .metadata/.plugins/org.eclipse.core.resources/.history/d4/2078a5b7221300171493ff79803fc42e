@@ -1,0 +1,8 @@
+
+public class vertex {
+	int id;
+	
+	public vertex (int id) {
+		this.id = id;
+	}
+}

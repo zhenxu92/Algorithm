@@ -4,7 +4,6 @@
  * This program describes a edge structure.
  */
 
-import java.math.*;
 public class Edge implements Comparable<Edge>{
         private final int id;
         private final Vertex source;
@@ -57,6 +56,4 @@ public class Edge implements Comparable<Edge>{
         		return -1;
         	}
         }
-
-
 }

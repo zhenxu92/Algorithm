@@ -23,7 +23,7 @@ public class KMSP {
 		
 		UnionFind uf = new UnionFind(graph.getVertexes().size() + 1);
 		while(!hs.isEmpty() && mst.size() < graph.getVertexes().size() - 1) {
-			Edge e = hs.deleteMin();
+			Edge e = (Edge)hs.deleteMin();
 			int source = e.getSource().getId();
 			int destination = e.getDestination().getId();
 			if(!uf.connected(source, destination)) {
@@ -69,7 +69,5 @@ public class KMSP {
             System.out.println(mst.remove().toString());
         }
 		
-	}
-	
-	
+	}	
 }

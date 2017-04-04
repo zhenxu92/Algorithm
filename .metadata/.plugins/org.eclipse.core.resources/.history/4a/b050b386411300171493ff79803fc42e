@@ -1,0 +1,56 @@
+import java.util.*;
+public class TSPManager {
+	
+	// data field
+	int[][] listOfEdges = new int[20][20];	// list of edges
+	List<Integer> optimalPath = new ArrayList<Integer>(); // best path
+	List<Integer> parenta = new ArrayList<Integer>();
+	List<Integer> parentb = new ArrayList<Integer>();
+	
+	
+	public TSPManager(int[][] list) {
+		this.listOfEdges = list;
+		for (int i = 0; i < 20; i++) {
+			parenta.add(i);
+			parentb.add(i);
+			optimalPath.add(i);
+		}
+		java.util.Collections.shuffle(parenta);
+		java.util.Collections.shuffle(parentb);
+	}
+	
+	// initializing the two lists
+	public void initializer () {
+		
+	}
+	
+	// crossover
+	// random select some numbers and do the crossover
+	// produce the two offsprings and then let the two
+	// offsprings be the new parents
+	public void crossover () {
+			
+	}
+	
+	// compare the offsprings with the parents, if cost
+	// is smaller, promote it and store as optimal path
+	public void comparator () {
+		
+	}
+	
+	
+	public int costCalc(List<Integer> list) {
+		int cost = 0;
+		for (int i = 0; i < list.size() - 1; i++) {
+			if (listOfEdges[list.get(i)][list.get(i + 1)] == 0) {
+				cost += 200;	// add maximum cost if there is no edge
+			} else {
+				cost = cost + listOfEdges[list.get(i)][list.get(i + 1)]; 	
+			}
+		}
+		return cost;
+	}
+	
+	
+	
+}
